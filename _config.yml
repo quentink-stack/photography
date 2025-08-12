@@ -21,6 +21,7 @@ footer:
 exif: '[{"tag": "Model", "icon": "camera-retro"}, {"tag": "FNumber", "icon": "dot-circle-o"}, {"tag": "ExposureTime", "icon": "clock-o"}, {"tag": "ISOSpeedRatings", "icon": "info-circle"}]'
 social_urls:
   instagram: "https://www.instagram.com/queue.kei"
+  medium: "https://medium.com/@quentin.k"
 #   dribbble: "https://dribbble.com/rampatra"
 #   linkedin: "https://in.linkedin.com/in/ram-patra"
 #   github: "https://www.github.com/rampatra"
