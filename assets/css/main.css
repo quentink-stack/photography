@@ -1,5 +1,7 @@
-@import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
+/* Removed render-blocking @import rules for Font Awesome and Google Fonts.
+   These resources are now loaded via explicit <link rel="preconnect"> and
+   <link rel="stylesheet"> entries in `_includes/header.html` to avoid
+   duplicate and blocking loads. */
 
 /*
 	Multiverse by HTML5 UP
