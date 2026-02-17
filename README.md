@@ -50,7 +50,7 @@ You can make the contact form work without the need of any server-side code. Jus
 
 ## Credits
 Thanks to [the original creator Ram Patra of this project](https://github.com/rampatra/photography) from which I had removed the fork from.
-I left his sponsors from the original readme.
+I left his sponsors from the original readme. I removed the fork so I could make my own changes and deviate from the original project.
 
 ## Sponsors
 
