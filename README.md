@@ -8,11 +8,6 @@ A jekyll website for photographers
 2. To add new pictures, you need to just upload them. __No code__ changes required.
 3. And, my favorite, you get to see EXIF data like __aperture, shutter speed, iso__ etc. when you click on any image, automagically. Moreover, you can customize this as per your needs.
 
-## Quick Start
-If you know a tad about tech and love taking pictures then this open-source project may help you setup a website to showcase
-all your creations without effort. And not just that, with this you need not pay a single dime to host your website as
-it's hosted by GitHub for __free__.
-
 **Just follow the below steps and your website would be live in no time:**
 
 1. Fork this repo by hitting the `Fork` button at the top right corner.
@@ -54,7 +49,8 @@ and thumbnail generation__. So if you're lazy like me then you can just do the f
 You can make the contact form work without the need of any server-side code. Just follow this [article on github](https://github.com/dwyl/html-form-send-email-via-google-script-without-server) which uses a simple google script to send emails or to upload to a google spreadsheet when someone submits the form.
 
 ## Credits
-Thanks to [AJ](https://twitter.com/ajlkn) for the website template which I enhanced for [jekyll](http://jekyllrb.com/).
+Thanks to [the original creator Ram Patra of this project](https://github.com/rampatra/photography) from which I had removed the fork from.
+I left his sponsors from the original readme.
 
 ## Sponsors
 
@@ -78,5 +74,3 @@ Proudly sponsored by these awesome apps. Support this project by becoming a spon
 </table>
 
 ---
-
-_P.S. For any queries or concerns, you can reach out to me on [Twitter](https://twitter.com/ram__patra). I'll try my best to help 🙏._
