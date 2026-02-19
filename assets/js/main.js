@@ -216,7 +216,10 @@
 
         // Main.
         var $main = $('#main'),
-            exifDatas = {};
+            exifDatas = {},
+            exifDates = {},
+            exifProcessed = 0,
+            exifTotal = $main.children('.thumb').length;
 
         // Thumbs.
         $main.children('.thumb').each(function () {
@@ -257,6 +260,27 @@
             $image_img[0].addEventListener("load", function() {
                 EXIF.getData($image_img[0], function () {
                     exifDatas[$image_img.data('name')] = getExifDataMarkup(this);
+
+                    // Extract EXIF date (prefer DateTimeOriginal, fall back to DateTime)
+                    var dt = EXIF.getTag(this, "DateTimeOriginal") || EXIF.getTag(this, "DateTime");
+                    if (dt) {
+                        // EXIF date format: YYYY:MM:DD HH:MM:SS
+                        try {
+                            var parts = dt.split(' ');
+                            var d = parts[0].split(':');
+                            var t = parts[1].split(':');
+                            exifDates[$image_img.data('name')] = new Date(d[0], d[1] - 1, d[2], t[0], t[1], t[2]);
+                        } catch (e) {
+                            exifDates[$image_img.data('name')] = null;
+                        }
+                    } else {
+                        exifDates[$image_img.data('name')] = null;
+                    }
+
+                    exifProcessed++;
+                    if (exifProcessed >= exifTotal) {
+                        sortThumbsByExif();
+                    }
                 });
             });
 
@@ -319,6 +343,23 @@
                 }
             }
             return template;
+        }
+
+        // Sort thumbnails by EXIF date (newest first). Thumbnails without EXIF date go last.
+        function sortThumbsByExif() {
+            var thumbs = $main.children('.thumb').get();
+            thumbs.sort(function (a, b) {
+                var an = $(a).find('img').data('name');
+                var bn = $(b).find('img').data('name');
+                var ad = exifDates[an] ? exifDates[an].getTime() : -Infinity;
+                var bd = exifDates[bn] ? exifDates[bn].getTime() : -Infinity;
+                // Newest first
+                return bd - ad;
+            });
+            // Re-append in sorted order
+            for (var i = 0; i < thumbs.length; i++) {
+                $main.append(thumbs[i]);
+            }
         }
 
     });
