@@ -25,6 +25,15 @@ And, of course, you don't want my name at the bottom to show up. You can change 
 3. Change the `baseurl` in `_config.yml`
 4. `$ bundle exec jekyll serve` - start/run the website
 
+#### Quick static preview (no Jekyll)
+If you already built the site (or want a fast preview of the generated files), serve the `_site` folder directly:
+
+```bash
+# from the repo root
+python -m http.server 8000 --directory _site
+# then open http://127.0.0.1:8000/ in your browser
+```
+
 ### Build the website
 1. `$ cd photography` - go to the project directory
 2. `$ npm install` - install all npm dependencies
