@@ -20,10 +20,9 @@ layout: default
         {% for image in site.static_files %}
         {% if image.path contains 'fulls' %}
         <article class="thumb">
-            <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-                <!-- Use native lazy-loading to defer offscreen images -->
-                <img loading="lazy" src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-                     data-name="{{ image.name }}"/></a>
+            <a href="{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
+                <img loading="lazy" src="{{ site.image_thumbs_loc }}/{{ image.name }}" alt="" data-name="{{ image.name }}" />
+            </a>
             <!--<h2></h2>
             <p></p>-->
         </article>

@@ -17,22 +17,21 @@ A jekyll website for photographers
 5. Update `baseurl` field in `_config.yml` file with whatever domain you used in step 4.
 6. And that's it, your website is set. To view, go to [photography.rampatra.com](http://photography.rampatra.com) (or whatever you have in the CNAME file) and if you don't have one, you can go to [[yourusername].github.io/photography](http://yourusername.github.io/photography)
 
-And, of course, you don't want my name at the bottom to show up. You can change it in `_config.yml` file as well as a few other settings like your social links, google analytics, etc. Just do not forget to [build the website](#build-the-website) after you make the changes.
 
-## Run the website locally to test
-1. `$ cd photography` - go to the project directory
-2. `$ bundle install` - install gems
-3. Change the `baseurl` in `_config.yml`
-4. `$ bundle exec jekyll serve` - start/run the website
-
-#### Quick static preview (no Jekyll)
-If you already built the site (or want a fast preview of the generated files), serve the `_site` folder directly:
-
+#### Quick static preview
+Build the site
+```
+bundle exec jekyll build
+```
+Then preview the built site
 ```bash
 # from the repo root
 python -m http.server 8000 --directory _site
 # then open http://127.0.0.1:8000/ in your browser
 ```
+
+### Image Thumbnail Compression
+
 
 ### Build the website
 1. `$ cd photography` - go to the project directory
