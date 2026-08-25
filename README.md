@@ -18,17 +18,36 @@ A jekyll website for photographers
 6. And that's it, your website is set. To view, go to [photography.rampatra.com](http://photography.rampatra.com) (or whatever you have in the CNAME file) and if you don't have one, you can go to [[yourusername].github.io/photography](http://yourusername.github.io/photography)
 
 
-#### Quick static preview
-Build the site
-```
-bundle exec jekyll build
-```
-Then preview the built site
-```bash
-# from the repo root
-python -m http.server 8000 --directory _site
-# then open http://127.0.0.1:8000/ in your browser
-```
+## Adding photos
+
+The gallery is generated automatically from the files in `images/fulls/`; do not add image entries to `index.html`. Use unique JPEG filenames, because each full-size image and its thumbnail must have exactly the same name.
+
+1. Copy original JPEGs into the top-level `images/` directory.
+2. Run the image task:
+
+   ```powershell
+   npx gulp resize
+   ```
+
+   It creates a 1024px-wide image in `images/fulls/` and a 512px-wide thumbnail in `images/thumbs/`. After successful processing, it deletes the originals from the top-level `images/` directory. Keep a separate backup of originals if needed.
+
+3. Preview the site locally:
+
+   ```powershell
+   bundle exec jekyll serve --baseurl ""
+   ```
+
+   Open `http://localhost:4000` and confirm the thumbnail and full-size image load.
+
+4. Publish the generated images:
+
+   ```powershell
+   git add images/fulls images/thumbs
+   git commit -m "Add new gallery photos"
+   git push origin master
+   ```
+
+`npx gulp resize` requires the project dependencies (`npm install`) and ImageMagick, which is used by the resize task.
 
 ### Image Thumbnail Compression
 
